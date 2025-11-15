@@ -25,6 +25,7 @@ body {
     color: var(--white-color);
     background: var(--bg-color);
     font-family: 'Inter', sans-serif;
+    text-align: justify;
 }
 
 header {
