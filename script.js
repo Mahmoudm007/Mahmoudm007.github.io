@@ -120,3 +120,55 @@ window.addEventListener('load', () => {
         navLinks[targetIndex].classList.add('active');
     }
 });
+
+// === VisualMinds slider logic ===
+(function () {
+  const slider = document.getElementById('visualminds-slider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.project-slide');
+  const prevBtn = slider.querySelector('.project-arrow-left');
+  const nextBtn = slider.querySelector('.project-arrow-right');
+  let current = 0;
+  let intervalId = null;
+
+  function showSlide(index) {
+    slides.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+
+  function startAuto() {
+    clearInterval(intervalId);
+    intervalId = setInterval(nextSlide, 5000); // 5 seconds
+  }
+
+  // Button events
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAuto(); // reset timer on manual click
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAuto();
+    });
+  }
+
+  // Init
+  showSlide(current);
+  startAuto();
+})();

@@ -595,7 +595,7 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                               We selected this series because it represents real-life social challenges and coping mechanisms in a way that is emotionally resonant and therapeutically appropriate. By embedding this content in our system's web interface and activating the camera in the background, children interact with the content naturally, which enables the collection of spontaneous valid behavioral responses.
                             </P>
                             <img src="images/GP/sensorimotor/pablo.png" alt="Pablo series screenshot" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.1. Description of the Pablo channel used to present visual stimuli during Sensorimotor and Socioemotional Analysis.</p>
+                            <p class="figure-caption">Figure&nbsp;3.1. Description of the Pablo channel used to present visual stimuli during Sensorimotor and Socioemotional Analysis.</p>
 
                             <h3 style="color:rgb(0, 255, 0);"> 3.2. Facial Landmarks Detection</h3>
                             <p>
@@ -605,7 +605,7 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                                 Facial landmarks provide the spatial foundation for several core features. In particular, the centers of the left and right irises are computed by averaging the coordinates of four dedicated landmarks each. The left iris center is derived from landmarks 474-477, while the right iris center is calculated using landmarks 469-472.
                             </p>
                             <img src="images/GP/sensorimotor/landmarks.png" alt="Facial landmarks detection using MediaPipe Face Mesh" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.2. Preprocessing steps prior to eye contact detection. Left to right: 1) Input image; 2) All faces are detected; 3) Child’s face is selected; 4) Facial landmarks are localized; and 5) Head pose is estimated.</p>
+                            <p class="figure-caption">Figure&nbsp;3.2. Preprocessing steps prior to eye contact detection. Left to right: 1) Input image; 2) All faces are detected; 3) Child’s face is selected; 4) Facial landmarks are localized; and 5) Head pose is estimated.</p>
 
                             
                             <h3 style="color:rgb(0, 255, 0);"> 3.3. Head Pose Estimation</h3>
@@ -613,7 +613,7 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                                 Head orientation is estimated using reference points derived from the detected 3D facial landmarks, particularly the nose tip, chin, and eye corners. Then we compute the Euler angles (Pitch, Yaw, and Roll). These angles represent the spatial orientation of the head and are tracked over the entire video session.
                             </p>
                             <img src="images/GP/sensorimotor/headpose.png" alt="Head pose estimation using facial landmarks" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.3. Demonstrates the real-time estimation of head orientation to assess visual attention and engagement.</p>
+                            <p class="figure-caption">Figure&nbsp;3.3. Demonstrates the real-time estimation of head orientation to assess visual attention and engagement.</p>
                             <p>
                               Head pose variability is an important biomarker in ASD, as abnormal head motion patterns may indicate issues with attention regulation or sensory processing. This variability is captured by measuring changes in the Euler angles across time, thereby producing a quantitative marker of head movement stability.
                             </p>
@@ -623,7 +623,7 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                                 Blinking analysis is performed through the Eye Aspect Ratio (EAR), which quantifies changes in eyelid separation relative to eye width. Three distances are extracted from the eye contour landmarks: inner vertical distance, outer vertical distance, and horizontal eye width. 
                             </p>
                             <img src="images/GP/sensorimotor/ear.png" alt="Eye Aspect Ratio (EAR) calculation" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.4. Eye Aspect Ratio (EAR) Calculation Using Eye Contour Landmarks.</p>
+                            <p class="figure-caption">Figure&nbsp;3.4. Eye Aspect Ratio (EAR) Calculation Using Eye Contour Landmarks.</p>
                             <p>
                               The EAR is computed as the average of the two vertical distances divided by the horizontal distance. A lower EAR indicates eye closure, while a higher EAR corresponds to open eyes. By tracking EAR over time, we can identify blink events and calculate blink rate and duration, which are relevant markers of sensory processing in ASD.
                             </p>
@@ -631,13 +631,14 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                               The EAR is calculated using the following formula:
                             </p>
                             <img src="images/GP/sensorimotor/ear-eq.jpg" alt="Eye blinking detection using EAR" class="method-figure" />
+                            <p class ="figure-caption">Figure&nbsp;3.5. Eye Aspect Ratio (EAR) Calculation Equation.</p>
 
                             <h3 style="color:rgb(0, 255, 0);"> 3.5. Emotion Recognition</h3>
                             <p>
                                 To analyze emotional responses, each detected child’s face is passed to the DeepFace model. It performs face detection, alignment, and embedding extraction using a deep CNN. The extracted features are compared to pre-trained templates to classify emotions into standard categories.
                             </p>
                             <img src="images/GP/sensorimotor/emotion.png" alt="Emotion recognition using DeepFace" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.5. Visual representation of the DeepFace CNN pipeline used to extract emotional features from facial images.</p>
+                            <p class="figure-caption">Figure&nbsp;3.6. Visual representation of the DeepFace CNN pipeline used to extract emotional features from facial images.</p>
                             <p>
                             This analysis tracks changes in the child's emotional expression while watching the visual content and provides insight into their affective engagement. The emotion pattern over time is especially useful in evaluating the child’s reaction to specific scenes and identifying moments of empathy, anxiety, or enjoyment.
                             </p>
@@ -647,18 +648,19 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
                                 Open mouth posturing is another potential marker for ASD and is assessed using the Mouth Aspect Ratio (MAR). MAR is computed from lip landmarks extracted using the Dlib facial landmark detector. The ratio compares the vertical mouth opening to the horizontal lip distance. Consistently high MAR values are interpreted as abnormal open-mouth appearances, which may suggest neuromotor control issues. 
                             </p>
                             <img src="images/GP/sensorimotor/mar.png" alt="Mouth Aspect Ratio (MAR) calculation" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.6. Mouth Aspect Ratio (MAR) Calculation Using Lip Landmarks.</p>
+                            <p class="figure-caption">Figure&nbsp;3.7. Mouth Aspect Ratio (MAR) Calculation Using Lip Landmarks.</p>
                             <p>
                               The MAR is calculated using the following formula:
                             </p>
                             <img src="images/GP/sensorimotor/mar-eq.jpg" alt="Mouth Aspect Ratio (MAR) calculation" class="method-figure" />
+                            <p class="figure-caption">Figure&nbsp;3.8. Mouth Aspect Ratio (MAR) Calculation Equation.</p>
 
                             <h3 style="color:rgb(0, 255, 0);"> 3.7. Output Metrics and System Integration</h3>
                             <p>
                                 All extracted features are processed and saved in real-time, producing a comprehensive set of behavioral markers for each child session. These include blinking rate, head pose variability, gaze stability, eye contact duration, emotion fluctuation patterns, open mouth appearances, and an overall social engagement score.
                             </p>
                             <img src="images/GP/sensorimotor/metrics.png" alt="Sensorimotor and socioemotional analysis pipeline" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.7. Eye State, Eye Contact, Mouth State, and Blink State Distributions for a given session.</p>
+                            <p class="figure-caption">Figure&nbsp;3.9. Eye State, Eye Contact, Mouth State, and Blink State Distributions for a given session.</p>
                             <p>
                               The model is deployed within a web-based platform where the child is presented with educational video stimuli chosen by the parent. The webcam runs unobtrusively in the background, allowing for a naturalistic interaction setting. In addition to providing immediate insights, this system doubles as a data collection tool for future studies, contributing to a scalable, multimodal framework for early ASD detection and assessment.
                             </p>
@@ -692,7 +694,7 @@ SSBD and ESBD videos were shared by parents and caregivers on public platforms a
 The annotation process was done in two steps. First, six student annotators labeled the behavior in each video. Then, a Speech-Language Pathologist (SLP) with 15 years of experience checked each clip again and labeled all behaviors present using a multi-label format, without marking time intervals.
 </p>
 <img src="images/GP/av/data.png" alt="Audio-Visual Autism Spectrum Dataset (AV-ASD) overview" class="method-figure" />
-<p class="figure-caption">Figure&nbsp;5. Audio-Visual Autism Spectrum Dataset (AV-ASD) Overview: Distribution of Clips per Behavior Category.</p>
+<p class="figure-caption">Figure&nbsp;4.1. Audio-Visual Autism Spectrum Dataset (AV-ASD) Overview: Distribution of Clips per Behavior Category.</p>
 
 
                             <h3 style="color:rgb(0, 255, 0)">4.2. Preprocessing</h3>
@@ -709,14 +711,14 @@ The annotation process was done in two steps. First, six student annotators labe
                                 The first step in audio preprocessing involves generating an audio caption that describes the semantic content of the audio signal. This is achieved using CoNeTTE, an audio captioning model that follows an encoder–decoder architecture. The encoder is a modified ConvNeXt (CNext) model adapted from the vision domain to process audio signals, while the decoder is a Transformer network that generates the caption text by predicting the next word based on previous tokens and the audio representation.
                             </p>
                             <img src="images/GP/av/conette.png" alt="CoNeTTE audio captioning model architecture" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.1. CoNeTTE Audio Captioning Model Architecture: Modified ConvNeXt Encoder and Transformer Decoder.</p>
+                            <p class="figure-caption">Figure&nbsp;4.2. CoNeTTE Audio Captioning Model Architecture: Modified ConvNeXt Encoder and Transformer Decoder.</p>
                             
                             <h3 style="color:rgb(255, 255, 100)">4.2.3. Audio Transcription</h3>
                             <p>
                                 The speech transcription stage transforms spoken language from video clips into structured text. This is accomplished using Whisper, a large-scale speech recognition model developed by OpenAI. In this work, the Whisper encoder processes each audio segment and extracts a fixed-length speech representation. To obtain the final speech feature vector, average pooling is applied across the encoder’s time dimension, producing a robust embedding that captures the semantic and acoustic content of the spoken utterances. These transcriptions serve as a textual input for downstream models, enabling the system to recognize and reason about autism-related behaviors involving non-typical language and other speech-linked social indicators.
                             </p>
                             <img src="images/GP/av/whisper.svg" alt="Whisper ASR model architecture" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.2. Whisper Speech Transcription Pipeline: Multitask Encoder-Decoder Architecture with Positional Encoding.</p>
+                            <p class="figure-caption">Figure&nbsp;4.3. Whisper Speech Transcription Pipeline: Multitask Encoder-Decoder Architecture with Positional Encoding.</p>
 
 
                             <h3 style="color:rgb(0, 255, 0)">4.3. PaliGemma-2 Instruction Tuning</h3>
@@ -727,12 +729,12 @@ The annotation process was done in two steps. First, six student annotators labe
                                 For training, we construct a paired instruction dataset Inst,y, where Inst denotes the multimodal input (image grid + enriched prompt), and y represents the multi-label behavioral annotation corresponding to autism-related categories. The prompt is designed to guide PaliGemma toward recognizing nuanced behaviors such as non-typical language, non-responsiveness, and repetitive motor actions.
                             </p>
                             <img src="images/GP/av/prompt.png" alt="PaliGemma-2 architecture" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.3. PaliGemma Instruction Tuning for Multimodal Autism Behavior Recognition from Audio-Visual Inputs.</p>
+                            <p class="figure-caption">Figure&nbsp;4.4. PaliGemma Instruction Tuning for Multimodal Autism Behavior Recognition from Audio-Visual Inputs.</p>
                             <p>
                               To enable efficient fine-tuning, we leverage LoRA (Low-Rank Adaptation) or parameter-efficient tuning methods. The training process employs Cross-Entropy Loss with class weighting to address label imbalance, and model performance is monitored using macro-averaged F1 scores. By integrating temporal, linguistic, and semantic cues, this tuning process empowers PaliGemma to capture the complex interplay between speech and behavior, leading to more accurate and explainable predictions for autism screening.
                             </p>
                             <img src="images/GP/av/paligemma.png" alt="Audio-Visual Behavior Analysis results" class="method-figure" />
-                            <p class="figure-caption">Figure&nbsp;4.4. PaliGemma-2 Architecture for ASD Behavior Analysis: Multimodal Fusion of Image and Text Tokens with SigLIP Projection.</p>
+                            <p class="figure-caption">Figure&nbsp;4.5. PaliGemma-2 Architecture for ASD Behavior Analysis: Multimodal Fusion of Image and Text Tokens with SigLIP Projection.</p>
 
                             <h3 style="color:rgb(0, 255, 0)">4.4. Results</h3>
                             <p>
@@ -1390,12 +1392,35 @@ The system encompasses six core AI models: (1) a stereotypical behavior recognit
             </div>
         <!-- Add more projects with unified image sizes via CSS -->
 
+
+
         <div class="education-card">
-              <img src="images/projects/des.jpg" style="object-fit: fill; width: 500px; height: 465px;">
+              <!-- 🔹 Image slider -->
+              <div class="project-slider" id="visualminds-slider">
+                <img src="images/projects/hybrid.jpg" class="project-slide active" alt="VisualMinds Screenshot 1">
+                <img src="images/projects/sift.jpg" class="project-slide" alt="VisualMinds Screenshot 2">
+                <img src="images/projects/snake.jpg" class="project-slide" alt="VisualMinds Screenshot 3">
+                <img src="images/projects/seg.jpg" class="project-slide" alt="VisualMinds Screenshot 3">
+
+                <!-- arrows -->
+                <button class="project-arrow project-arrow-left">
+                  <i class='bx bx-chevron-left'></i>
+                </button>
+                <button class="project-arrow project-arrow-right">
+                  <i class='bx bx-chevron-right'></i>
+                </button>
+              </div>
+
+              <!-- 🔹 Card content -->
               <div class="content">
-                <h3>VisualMinds – Computer Vision Toolbox </h3>                
-                  <p>VisualMinds is a comprehensive repository showcasing advanced computer vision applications, all developed from scratch using C++ and the Qt framework. Each application focuses on various aspects of image processing, segmentation, and analysis, delivering robust desktop solutions.</p>
-            <div class="edu-tags">
+                <h3>VisualMinds – Computer Vision Toolbox</h3>
+                <p>
+                  VisualMinds is a comprehensive repository showcasing advanced computer vision applications,
+                  all developed from scratch using C++ and the Qt framework. Each application focuses on various
+                  aspects of image processing, segmentation, and analysis, delivering robust desktop solutions.
+                </p>
+
+                <div class="edu-tags">
                   <span class="tag">C++</span>
                   <span class="tag">Qt Framework</span>
                   <span class="tag">Computer Vision Toolkit</span>
@@ -1403,7 +1428,7 @@ The system encompasses six core AI models: (1) a stereotypical behavior recognit
                   <span class="tag">Hough Transform</span>
                   <span class="tag">Edge Detection</span>
                   <span class="tag">Harris Corner Detection</span>
-                  <span class="tag">SIFT Feature Extractor</span> 
+                  <span class="tag">SIFT Feature Extractor</span>
                   <span class="tag">Normalized Cross-Correlation</span>
                   <span class="tag">Sum of Squared Differences</span>
                   <span class="tag">Image Matching</span>
@@ -1414,13 +1439,23 @@ The system encompasses six core AI models: (1) a stereotypical behavior recognit
                   <span class="tag">Mean Shift</span>
                   <span class="tag">Agglomerative Clustering</span>
                   <span class="tag">Region Growing</span>
-              </div>
-                <a href="https://github.com/Mahmoudm007/CV_preprocessing_toolkit" class="btn"> <i class='bx bxl-github'></i> Preprocessing Toolkit</a>
-                <a href="https://github.com/Mahmoudm007/Image_Descriptor" class="btn"> <i class='bx bxl-github'></i> Image Descriptor</a>
-                <a href="https://github.com/Mahmoudm007/Segmentor" class="btn"> <i class='bx bxl-github'></i> Segmentor</a>
-                <a href="https://github.com/Mahmoudm007/SnakeContourVision" class="btn"> <i class='bx bxl-github'></i> Snake Contour Vision</a>
+                </div>
+
+                <a href="https://github.com/Mahmoudm007/CV_preprocessing_toolkit" class="btn">
+                  <i class='bx bxl-github'></i> Preprocessing Toolkit
+                </a>
+                <a href="https://github.com/Mahmoudm007/Image_Descriptor" class="btn">
+                  <i class='bx bxl-github'></i> Image Descriptor
+                </a>
+                <a href="https://github.com/Mahmoudm007/Segmentor" class="btn">
+                  <i class='bx bxl-github'></i> Segmentor
+                </a>
+                <a href="https://github.com/Mahmoudm007/SnakeContourVision" class="btn">
+                  <i class='bx bxl-github'></i> Snake Contour Vision
+                </a>
               </div>
             </div>
+
         <!-- Add more projects with unified image sizes via CSS -->
         <div class="education-card">
               <img src="images/projects/download.png" style="object-fit: fill; width: 500px; height: 465px;">
