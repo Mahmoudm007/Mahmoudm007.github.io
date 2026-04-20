@@ -25,7 +25,6 @@ body {
     color: var(--white-color);
     background: var(--bg-color);
     font-family: 'Inter', sans-serif;
-    text-align: justify;
 }
 
 header {
@@ -161,6 +160,90 @@ section.active {
     grid-template-columns: 1fr; /* Single column to stack vertically */
     gap: 2rem;
 }
+
+/* === VisualMinds slider – hard override for images === */
+
+.project-slider {
+  position: relative;
+  width: 500px;
+  height: 465px;
+  overflow: hidden;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: #06263b;    /* nice dark background behind images */
+}
+
+/* Make sure the generic .education-card img rule doesn't break this */
+.education-card .project-slider img.project-slide {
+  position: absolute;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  object-fit: fill;    /* see the *whole* screenshot without cropping */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Only one visible at a time */
+.education-card .project-slider img.project-slide.active {
+  opacity: 1;
+}
+
+/* Arrows stay centered on the slider */
+.project-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: hsl(221, 95%, 50%);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.project-arrow-left {
+  left: 10px;
+}
+
+.project-arrow-right {
+  right: 10px;
+}
+
+.project-arrow i {
+  font-size: 2rem;
+}
+
+.project-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Card layout: slider left, content right */
+.education-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Mobile: stack slider above text */
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-slider {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
 
 .education-card, .research-card {
     display: flex;
@@ -502,88 +585,6 @@ section.active {
     }
 }
 
-/* === VisualMinds slider – hard override for images === */
-
-.project-slider {
-  position: relative;
-  width: 500px;
-  height: 465px;
-  overflow: hidden;
-  border-radius: 10px;
-  flex-shrink: 0;
-  background: #06263b;    /* nice dark background behind images */
-}
-
-/* Make sure the generic .education-card img rule doesn't break this */
-.education-card .project-slider img.project-slide {
-  position: absolute;
-  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
-  width: 100%;
-  height: 100%;
-  object-fit: fill;    /* see the *whole* screenshot without cropping */
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-/* Only one visible at a time */
-.education-card .project-slider img.project-slide.active {
-  opacity: 1;
-}
-
-/* Arrows stay centered on the slider */
-.project-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: hsl(221, 95%, 50%);
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.project-arrow-left {
-  left: 10px;
-}
-
-.project-arrow-right {
-  right: 10px;
-}
-
-.project-arrow i {
-  font-size: 2rem;
-}
-
-.project-arrow:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-/* Card layout: slider left, content right */
-.education-card {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-/* Mobile: stack slider above text */
-@media (max-width: 768px) {
-  .education-card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-slider {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-}
 
 .home-detail p {
     font-size: 1.6rem;
