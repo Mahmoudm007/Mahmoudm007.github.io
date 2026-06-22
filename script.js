@@ -172,3 +172,27 @@ window.addEventListener('load', () => {
   showSlide(current);
   startAuto();
 })();
+
+// Form submission handler
+(function () {
+  const form = document.querySelector("form");
+  const alertBox = document.getElementById("form-alert");
+  if (!form || !alertBox) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+    if (response.ok) {
+      form.reset();
+      alertBox.style.display = "block";
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 4000);
+    }
+  });
+})();
